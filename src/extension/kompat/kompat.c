@@ -509,25 +509,6 @@ static int handle_sysenter_end(Tracee *tracee, Config *config)
 		return 0;
 	}
 
-	case PR_renameat2: {
-		Modif modif = {
-			.expected_release = KERNEL_VERSION(3,15,0),
-			.new_sysarg_num   = PR_rename,
-			.shifts = { [0] = {
-					.sysarg  = SYSARG_2,
-					.nb_args = 1,
-					.offset  =-1 },
-				    [1] = {
-					    .sysarg  = SYSARG_4,
-					    .nb_args = 1,
-					    .offset  = -2 }
-			}
-		};
-                /* TODO: manage RENAME_NOREPLACE: returns EEXISTS if dest exists */
-		modify_syscall(tracee, config, &modif);
-		return 0;
-	}
-
 	case PR_signalfd4: {
 		bool modified;
 		Modif modif = {

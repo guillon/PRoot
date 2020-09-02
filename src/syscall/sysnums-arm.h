@@ -335,4 +335,5 @@ static const Sysnum sysnums_arm[] = {
 	[ 375 ] = PR_setns,
 	[ 376 ] = PR_process_vm_readv,
 	[ 377 ] = PR_process_vm_writev,
+	[ 382 ] = PR_renameat2,
 };

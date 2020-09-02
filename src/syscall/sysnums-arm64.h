@@ -260,4 +260,5 @@ static const Sysnum sysnums_arm64[] = {
 	[ 271 ] = PR_process_vm_writev,
 	[ 272 ] = PR_kcmp,
 	[ 273 ] = PR_syscalls,
+	[ 276 ] = PR_renameat2,
 };
